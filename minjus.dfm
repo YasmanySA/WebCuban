@@ -25,7 +25,7 @@ object f_minjus: Tf_minjus
     LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
     object app_edge: TEdgeBrowser
       Left = 12
-      Top = 74
+      Top = 104
       Width = 1076
       Height = 285
       TabOrder = 6
@@ -36,7 +36,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton1: TcxButton
       Left = 94
-      Top = 42
+      Top = 72
       Width = 99
       Height = 25
       Caption = 'NAvegar'
@@ -44,7 +44,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton2: TcxButton
       Left = 12
-      Top = 42
+      Top = 72
       Width = 75
       Height = 25
       Caption = 'Activar Consola'
@@ -53,7 +53,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton3: TcxButton
       Left = 200
-      Top = 42
+      Top = 72
       Width = 137
       Height = 25
       Caption = 'send_data'
@@ -62,13 +62,12 @@ object f_minjus: Tf_minjus
     end
     object cxGrid1: TcxGrid
       Left = 12
-      Top = 667
+      Top = 645
       Width = 1076
       Height = 200
       TabOrder = 12
       LookAndFeel.NativeStyle = False
       object cxGrid1DBTableView1: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
         Navigator.Buttons.First.Visible = True
         Navigator.Buttons.PriorPage.Visible = True
         Navigator.Buttons.Prior.Visible = True
@@ -85,12 +84,8 @@ object f_minjus: Tf_minjus
         Navigator.Buttons.SaveBookmark.Visible = True
         Navigator.Buttons.GotoBookmark.Visible = True
         Navigator.Buttons.Filter.Visible = True
-        ScrollbarAnnotations.CustomAnnotations = <>
         DataController.DataSource = DScases
         DataController.KeyFieldNames = 'ID'
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
         OptionsView.NoDataToDisplayInfoText = 'No existe ningun caso'
         OptionsView.ColumnAutoWidth = True
         OptionsView.HeaderFilterButtonShowMode = fbmSmartTag
@@ -133,7 +128,7 @@ object f_minjus: Tf_minjus
     end
     object StyledButton1: TStyledButton
       Left = 12
-      Top = 874
+      Top = 852
       Width = 1076
       Height = 50
       Font.Charset = DEFAULT_CHARSET
@@ -148,7 +143,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton4: TcxButton
       Left = 1023
-      Top = -18
+      Top = 12
       Width = 65
       Height = 53
       LookAndFeel.Kind = lfUltraFlat
@@ -322,7 +317,7 @@ object f_minjus: Tf_minjus
     end
     object edCases: TcxDBTextEdit
       Left = 455
-      Top = 571
+      Top = 453
       AutoSize = False
       DataBinding.DataField = 'numbercase'
       DataBinding.DataSource = DScases
@@ -336,13 +331,13 @@ object f_minjus: Tf_minjus
       StyleFocused.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.NativeStyle = False
       StyleReadOnly.LookAndFeel.NativeStyle = False
-      TabOrder = 8
+      TabOrder = 7
       Height = 27
       Width = 121
     end
     object edPIN: TcxDBTextEdit
       Left = 455
-      Top = 605
+      Top = 487
       AutoSize = False
       DataBinding.DataField = 'pin'
       DataBinding.DataSource = DScases
@@ -351,13 +346,13 @@ object f_minjus: Tf_minjus
       Style.HotTrack = False
       Style.StyleController = cxEditStyleController1
       Style.TransparentBorder = False
-      TabOrder = 9
+      TabOrder = 8
       Height = 38
       Width = 121
     end
     object cxButton5: TcxButton
       Left = 583
-      Top = 571
+      Top = 453
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1009,12 +1004,12 @@ object f_minjus: Tf_minjus
         44AE426082}
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Transparent = True
-      TabOrder = 10
+      TabOrder = 9
       OnClick = cxButton5Click
     end
     object cxButton6: TcxButton
       Left = 665
-      Top = 571
+      Top = 453
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1263,71 +1258,37 @@ object f_minjus: Tf_minjus
         49454E44AE426082}
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Transparent = True
-      TabOrder = 11
+      TabOrder = 10
       OnClick = cxButton6Click
     end
     object cxButton7: TcxButton
       Left = 344
-      Top = 42
+      Top = 72
       Width = 75
       Height = 25
       Caption = 'cxButton3'
       TabOrder = 4
       OnClick = cxButton7Click
     end
-    object script: TSynEdit
-      Left = 13
-      Top = 367
-      Width = 1074
-      Height = 146
-      Color = clWindowFrame
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Consolas'
-      Font.Style = []
-      Font.Quality = fqClearTypeNatural
-      TabOrder = 7
-      UseCodeFolding = False
-      BorderStyle = bsNone
-      ExtraLineSpacing = 5
-      Gutter.Color = clBtnHighlight
-      Gutter.Font.Charset = DEFAULT_CHARSET
-      Gutter.Font.Color = clWindowText
-      Gutter.Font.Height = -11
-      Gutter.Font.Name = 'Consolas'
-      Gutter.Font.Style = []
-      Gutter.ZeroStart = True
-      Gutter.LineNumberStart = 0
-      Gutter.Bands = <
-        item
-          Kind = gbkMarks
-          Width = 13
-        end
-        item
-          Kind = gbkLineNumbers
-        end
-        item
-          Kind = gbkFold
-        end
-        item
-          Kind = gbkTrackChanges
-        end
-        item
-          Kind = gbkMargin
-          Width = 3
-        end>
-      Highlighter = SynJScriptSyn1
-      SelectedColor.Alpha = 0.400000005960464500
-    end
     object cxButton8: TcxButton
       Left = 426
-      Top = 42
+      Top = 72
       Width = 183
       Height = 25
       Caption = 'Probar Script'
       TabOrder = 5
       OnClick = cxButton8Click
+    end
+    object script: TcxMemo
+      Left = 70
+      Top = 549
+      Lines.Strings = (
+        'script')
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 11
+      Height = 89
+      Width = 1018
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
@@ -1387,7 +1348,7 @@ object f_minjus: Tf_minjus
       ControlOptions.OriginalHeight = 200
       ControlOptions.OriginalWidth = 250
       ControlOptions.ShowBorder = False
-      Index = 5
+      Index = 6
     end
     object dxLayoutItem6: TdxLayoutItem
       Parent = dxLayoutControl1Group_Root
@@ -1397,7 +1358,7 @@ object f_minjus: Tf_minjus
       ControlOptions.OriginalHeight = 50
       ControlOptions.OriginalWidth = 75
       ControlOptions.ShowBorder = False
-      Index = 6
+      Index = 7
     end
     object dxLayoutGroup1: TdxLayoutGroup
       Parent = dxLayoutControl1Group_Root
@@ -1515,7 +1476,6 @@ object f_minjus: Tf_minjus
     end
     object dxLayoutItem14: TdxLayoutItem
       Parent = dxLayoutControl1Group_Root
-      Control = script
       ControlOptions.OriginalHeight = 146
       ControlOptions.OriginalWidth = 200
       Index = 3
@@ -1528,6 +1488,15 @@ object f_minjus: Tf_minjus
       ControlOptions.OriginalWidth = 183
       ControlOptions.ShowBorder = False
       Index = 4
+    end
+    object dxLayoutItem15: TdxLayoutItem
+      Parent = dxLayoutControl1Group_Root
+      CaptionOptions.Text = 'cxMemo1'
+      Control = script
+      ControlOptions.OriginalHeight = 89
+      ControlOptions.OriginalWidth = 185
+      ControlOptions.ShowBorder = False
+      Index = 5
     end
   end
   object DScases: TDataSource
@@ -1589,46 +1558,5 @@ object f_minjus: Tf_minjus
   object Timer1: TTimer
     Left = 848
     Top = 456
-  end
-  object SynJScriptSyn1: TSynJScriptSyn
-    CommentAttri.Foreground = clSilver
-    IdentifierAttri.Foreground = 376800
-    KeyAttri.Foreground = 33023
-    EventAttri.Foreground = 33023
-    StringAttri.Foreground = 4259584
-    Left = 928
-    Top = 712
-  end
-  object SynAutoComplete1: TSynAutoComplete
-    EndOfTokenChr = '()[]. '
-    Editor = script
-    ShortCut = 8224
-    Options = []
-    Left = 904
-    Top = 656
-  end
-  object SynEditSearch1: TSynEditSearch
-    Left = 792
-    Top = 656
-  end
-  object SynJavaSyn1: TSynJavaSyn
-    Left = 992
-    Top = 656
-  end
-  object SynPHPSyn1: TSynPHPSyn
-    Left = 816
-    Top = 736
-  end
-  object SynSQLSyn1: TSynSQLSyn
-    Left = 1008
-    Top = 632
-  end
-  object SynPasSyn1: TSynPasSyn
-    CommentAttri.Foreground = clLime
-    DirectiveAttri.Background = 4227327
-    IdentifierAttri.Foreground = clWhite
-    KeyAttri.Foreground = 33023
-    Left = 1024
-    Top = 720
   end
 end

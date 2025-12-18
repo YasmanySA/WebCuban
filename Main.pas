@@ -21,7 +21,7 @@ uses Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   dxSkinTheBezier, dxSkinValentine, dxSkinVisualStudio2013Blue,
   dxSkinVisualStudio2013Dark, dxSkinVisualStudio2013Light, dxSkinVS2010,
   dxSkinWhiteprint, dxSkinWXI, dxSkinXmas2008Blue, dxCustomTileControl,
-  cxClasses, dxTileControl, dxCore, dxSkinsForm, Vcl.onguard, dxLayoutContainer,
+  cxClasses, dxTileControl, dxCore, dxSkinsForm, dxLayoutContainer,
   dxLayoutControlAdapters, Vcl.Menus, Vcl.StdCtrls, cxButtons, dxLayoutControl,
   dxLayoutLookAndFeels;
 

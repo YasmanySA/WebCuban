@@ -11,7 +11,8 @@ object dm: Tdm
       'ApplicationName=Enterprise/Architect/Ultimate'
       'Workstation=SPA2'
       'MARS=yes'
-      'Pooled=spa'
+      'Pooled=webcuban'
+      'Encrypt=Optional'
       'DriverID=MSSQL')
     Connected = True
     LoginPrompt = False

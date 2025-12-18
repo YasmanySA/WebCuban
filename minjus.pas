@@ -29,9 +29,7 @@ uses Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   cxGridCustomView, cxGrid, Vcl.ButtonStylesAttributes, Vcl.StyledButton,
   Vcl.StyledTaskDialog, Vcl.StyledAnimatedTaskDialog, dxLayoutcxEditAdapters,
   cxContainer, cxTextEdit, dxLayoutLookAndFeels, cxDBEdit, Vcl.ExtCtrls,
-  SynEditHighlighter, SynEditCodeFolding, SynHighlighterJScript, SynEdit,
-  SynHighlighterPas, SynHighlighterSQL, SynHighlighterPHP, SynHighlighterJava,
-  SynEditMiscClasses, SynEditSearch, SynCompletionProposal;
+  JvExStdCtrls, JvMemo, cxMemo;
 
 type
   Tf_minjus = class(TForm)
@@ -83,17 +81,11 @@ type
     cxGrid1DBTableView1type: TcxGridDBColumn;
     cxGrid1DBTableView1name: TcxGridDBColumn;
     Timer1: TTimer;
-    script: TSynEdit;
     dxLayoutItem14: TdxLayoutItem;
-    SynJScriptSyn1: TSynJScriptSyn;
-    SynAutoComplete1: TSynAutoComplete;
-    SynEditSearch1: TSynEditSearch;
-    SynJavaSyn1: TSynJavaSyn;
-    SynPHPSyn1: TSynPHPSyn;
-    SynSQLSyn1: TSynSQLSyn;
-    SynPasSyn1: TSynPasSyn;
     dxLayoutItem13: TdxLayoutItem;
     cxButton8: TcxButton;
+    script: TcxMemo;
+    dxLayoutItem15: TdxLayoutItem;
     procedure cxButton2Click(Sender: TObject);
     procedure cxButton3Click(Sender: TObject);
     procedure app_edgeExecuteScript(Sender: TCustomEdgeBrowser;

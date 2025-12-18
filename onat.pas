@@ -4,16 +4,13 @@ interface
 
 uses Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.TMSFNCTypes, Vcl.TMSFNCUtils, Vcl.TMSFNCGraphics, Vcl.TMSFNCGraphicsTypes,
-  Vcl.TMSFNCCustomControl, Vcl.TMSFNCWebBrowser, Vcl.TMSFNCEdgeWebBrowser,
-  Vcl.StdCtrls, Vcl.TMSFNCWebCoreClientBrowser ,System.IOUtils,
-  Vcl.ButtonStylesAttributes, Vcl.StyledTaskDialog;
+  System.IOUtils,
+  Vcl.ButtonStylesAttributes, Vcl.StyledTaskDialog, Vcl.StdCtrls;
 
 type
   TfOnat = class(TForm)
     Button1: TButton;
     Button2: TButton;
-    TMSFNCEdgeWebBrowser1: TTMSFNCEdgeWebBrowser;
     StyledTaskDialog1: TStyledTaskDialog;
     procedure Button2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -36,7 +33,7 @@ implementation
 
 procedure TfOnat.Button1Click(Sender: TObject);
 begin
-  TMSFNCEdgeWebBrowser1.Navigate(url_onat)
+//  TMSFNCEdgeWebBrowser1.Navigate(url_onat)
 end;
 
 procedure TfOnat.Button2Click(Sender: TObject);
@@ -51,7 +48,7 @@ begin
 js:= 'post.js' ;
   dir := ExtractFilePath(Application.ExeName)+'js\onat\';
   jsCode := TFile.ReadAllText(dir + js);
-  TMSFNCEdgeWebBrowser1.ExecuteJavaScript(jsCode);
+//  TMSFNCEdgeWebBrowser1.ExecuteJavaScript(jsCode);
 
 
 //StyledTaskDialog1.Title := 'Confirmación';

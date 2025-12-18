@@ -29,20 +29,6 @@ object fOnat: TfOnat
     TabOrder = 1
     OnClick = Button2Click
   end
-  object TMSFNCEdgeWebBrowser1: TTMSFNCEdgeWebBrowser
-    Left = 120
-    Top = 40
-    Width = 921
-    Height = 727
-    ParentDoubleBuffered = False
-    DoubleBuffered = True
-    TabOrder = 2
-    Settings.EnableContextMenu = True
-    Settings.EnableShowDebugConsole = True
-    Settings.EnableAcceleratorKeys = True
-    Settings.AllowExternalDrop = False
-    Settings.UsePopupMenuAsContextMenu = False
-  end
   object StyledTaskDialog1: TStyledTaskDialog
     Buttons = <>
     Caption = 'sas'

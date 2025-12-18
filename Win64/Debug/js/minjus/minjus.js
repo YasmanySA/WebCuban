@@ -6,11 +6,9 @@ const DYNAFORM = 'tracker_Show?CTO_UID_OBJ=2473970175d10d8284601e4012429159&CTO_
 
 function loadweb() {
     window.location.href = url_login;
-    return { state: 'Cargando.', StyleClass: 'Info' };
+    return {state: 'Cargando.', StyleClass: 'Info'};
 
 };
-
-
 
 
 /**
@@ -81,29 +79,26 @@ function getError() {
             const text = error.innerText.trim();
 
             if (text === 'ERROR: El caso no existe') {
-                return { state: 'Por favor, el caso no existe. Revise de nuevo.', StyleClass: 'Danger' };
+                return {state: 'Por favor, el caso no existe. Revise de nuevo.', StyleClass: 'Danger'};
             }
 
             if (text === 'ERROR: El PIN es inválido') {
-                return { state: 'El PIN es incorrecto. Revise bien.', StyleClass: 'Danger' };
+                return {state: 'El PIN es incorrecto. Revise bien.', StyleClass: 'Danger'};
             }
 
             // Si hay error pero no coincide con los mensajes anteriores
-            return { state: text, StyleClass: 'Warning' };
+            return {state: text, StyleClass: 'Warning'};
 
         } else {
             // Si no hay error visible
-            return { state: 'Todavía no se han enviado datos al formulario', StyleClass: 'Info' };
+            return {state: 'Todavía no se han enviado datos al formulario', StyleClass: 'Info'};
         }
 
     } else {
         // Si no estamos en la página de login
-        return { state: 'Entrando al sistema', StyleClass: 'Success' };
+        return {state: 'Entrando al sistema', StyleClass: 'Success'};
     }
 }
-
-
-
 
 
 // Detectar el número de filas y capturar enlaces
@@ -148,28 +143,10 @@ function capturarEnlaces() {
 }
 
 // Ejecutar y obtener resultados
- capturarEnlaces();
+capturarEnlaces();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- // getError();
-
+// getError();
 
 
 // Postdata("15427436","26MU");
