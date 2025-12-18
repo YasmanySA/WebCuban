@@ -1,0 +1,20 @@
+BDE/IBX/ADO/ODAC/SDAC/MyDAC/IBDAC/PgDAC/LiteDAC/AnyDAC/FireDAC/FIBPlus Migration Wizard log
+
+Created at: 18/10/2025 18:05:00
+
+Initializing unit list
+
+Allocating temporary folder
+
+Processing file: D:\SoftwareProgramer\Software\WebCuban\data.pas
+
+No changes
+
+Processing file: D:\SoftwareProgramer\Software\WebCuban\data.DFM
+
+No changes
+
+Removing temporary folder
+
+Replace procedure was performed sucessfully.
+
