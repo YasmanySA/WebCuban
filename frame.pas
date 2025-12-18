@@ -4,9 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCEFViewComponent,
-  uCEFBrowserViewComponent, uCEFChromiumCore, uCEFFMXChromium,
-  uCEFButtonComponent, uCEFLabelButtonComponent, uCEFMenuButtonComponent,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.StdCtrls;
 
 type

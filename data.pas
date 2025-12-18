@@ -23,6 +23,7 @@ type
     q_casesstat_msg: TStringField;
     q_casestype: TIntegerField;
     q_casesname: TStringField;
+    FDPhysMSSQLDriverLink1: TFDPhysMSSQLDriverLink;
   private
     { Private declarations }
   public
