@@ -143,7 +143,7 @@ function capturarEnlaces() {
 }
 
 // Ejecutar y obtener resultados
-capturarEnlaces();
+// capturarEnlaces();
 
 
 // getError();

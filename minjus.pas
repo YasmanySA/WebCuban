@@ -86,6 +86,8 @@ type
     cxButton8: TcxButton;
     script: TcxMemo;
     dxLayoutItem15: TdxLayoutItem;
+    Memo1: TMemo;
+    dxLayoutItem16: TdxLayoutItem;
     procedure cxButton2Click(Sender: TObject);
     procedure cxButton3Click(Sender: TObject);
     procedure app_edgeExecuteScript(Sender: TCustomEdgeBrowser;
@@ -143,7 +145,8 @@ procedure Tf_minjus.app_edgeExecuteScript(Sender: TCustomEdgeBrowser;
 var JSONObject: TJSONObject;
 begin
   try
-    StyledButton1.Caption := AResultObjectAsJson;
+  Memo1.Text:= AResultObjectAsJson;
+//    StyledButton1.Caption := AResultObjectAsJson;
     // Parsear el JSON devuelto por el script
     JSONObject := TJSONObject.ParseJSONValue(AResultObjectAsJson)
       as TJSONObject;

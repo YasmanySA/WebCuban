@@ -25,7 +25,7 @@ object f_minjus: Tf_minjus
     LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
     object app_edge: TEdgeBrowser
       Left = 12
-      Top = 104
+      Top = -22
       Width = 1076
       Height = 285
       TabOrder = 6
@@ -36,7 +36,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton1: TcxButton
       Left = 94
-      Top = 72
+      Top = -54
       Width = 99
       Height = 25
       Caption = 'NAvegar'
@@ -44,7 +44,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton2: TcxButton
       Left = 12
-      Top = 72
+      Top = -54
       Width = 75
       Height = 25
       Caption = 'Activar Consola'
@@ -53,7 +53,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton3: TcxButton
       Left = 200
-      Top = 72
+      Top = -54
       Width = 137
       Height = 25
       Caption = 'send_data'
@@ -62,10 +62,10 @@ object f_minjus: Tf_minjus
     end
     object cxGrid1: TcxGrid
       Left = 12
-      Top = 645
+      Top = 552
       Width = 1076
       Height = 200
-      TabOrder = 12
+      TabOrder = 13
       LookAndFeel.NativeStyle = False
       object cxGrid1DBTableView1: TcxGridDBTableView
         Navigator.Buttons.First.Visible = True
@@ -128,7 +128,7 @@ object f_minjus: Tf_minjus
     end
     object StyledButton1: TStyledButton
       Left = 12
-      Top = 852
+      Top = 759
       Width = 1076
       Height = 50
       Font.Charset = DEFAULT_CHARSET
@@ -137,13 +137,13 @@ object f_minjus: Tf_minjus
       Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 13
+      TabOrder = 14
       StyleRadius = 30
       StyleFamily = 'Bootstrap'
     end
     object cxButton4: TcxButton
       Left = 1023
-      Top = 12
+      Top = -114
       Width = 65
       Height = 53
       LookAndFeel.Kind = lfUltraFlat
@@ -317,7 +317,7 @@ object f_minjus: Tf_minjus
     end
     object edCases: TcxDBTextEdit
       Left = 455
-      Top = 453
+      Top = 327
       AutoSize = False
       DataBinding.DataField = 'numbercase'
       DataBinding.DataSource = DScases
@@ -337,7 +337,7 @@ object f_minjus: Tf_minjus
     end
     object edPIN: TcxDBTextEdit
       Left = 455
-      Top = 487
+      Top = 361
       AutoSize = False
       DataBinding.DataField = 'pin'
       DataBinding.DataSource = DScases
@@ -352,7 +352,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton5: TcxButton
       Left = 583
-      Top = 453
+      Top = 327
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1009,7 +1009,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton6: TcxButton
       Left = 665
-      Top = 453
+      Top = 327
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1263,16 +1263,16 @@ object f_minjus: Tf_minjus
     end
     object cxButton7: TcxButton
       Left = 344
-      Top = 72
+      Top = -54
       Width = 75
       Height = 25
-      Caption = 'cxButton3'
+      Caption = 'ver error'
       TabOrder = 4
       OnClick = cxButton7Click
     end
     object cxButton8: TcxButton
       Left = 426
-      Top = 72
+      Top = -54
       Width = 183
       Height = 25
       Caption = 'Probar Script'
@@ -1281,14 +1281,27 @@ object f_minjus: Tf_minjus
     end
     object script: TcxMemo
       Left = 70
-      Top = 549
+      Top = 456
       Lines.Strings = (
         'script')
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 11
+      TabOrder = 12
       Height = 89
       Width = 1018
+    end
+    object Memo1: TMemo
+      Left = 71
+      Top = 424
+      Width = 1016
+      Height = 24
+      BevelInner = bvNone
+      BevelKind = bkFlat
+      BevelOuter = bvSpace
+      BorderStyle = bsNone
+      Lines.Strings = (
+        'Memo1')
+      TabOrder = 11
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
@@ -1348,7 +1361,7 @@ object f_minjus: Tf_minjus
       ControlOptions.OriginalHeight = 200
       ControlOptions.OriginalWidth = 250
       ControlOptions.ShowBorder = False
-      Index = 6
+      Index = 7
     end
     object dxLayoutItem6: TdxLayoutItem
       Parent = dxLayoutControl1Group_Root
@@ -1358,7 +1371,7 @@ object f_minjus: Tf_minjus
       ControlOptions.OriginalHeight = 50
       ControlOptions.OriginalWidth = 75
       ControlOptions.ShowBorder = False
-      Index = 7
+      Index = 8
     end
     object dxLayoutGroup1: TdxLayoutGroup
       Parent = dxLayoutControl1Group_Root
@@ -1496,6 +1509,14 @@ object f_minjus: Tf_minjus
       ControlOptions.OriginalHeight = 89
       ControlOptions.OriginalWidth = 185
       ControlOptions.ShowBorder = False
+      Index = 6
+    end
+    object dxLayoutItem16: TdxLayoutItem
+      Parent = dxLayoutControl1Group_Root
+      CaptionOptions.Text = 'Memo1'
+      Control = Memo1
+      ControlOptions.OriginalHeight = 24
+      ControlOptions.OriginalWidth = 185
       Index = 5
     end
   end
