@@ -88,16 +88,22 @@ type
     dxLayoutItem15: TdxLayoutItem;
     Memo1: TMemo;
     dxLayoutItem16: TdxLayoutItem;
+    dxLayoutItem17: TdxLayoutItem;
+    cxButton9: TcxButton;
     procedure cxButton2Click(Sender: TObject);
     procedure cxButton3Click(Sender: TObject);
     procedure app_edgeExecuteScript(Sender: TCustomEdgeBrowser;
       AResult: HRESULT; const AResultObjectAsJson: string);
+    procedure app_edgeNavigationCompleted(Sender: TCustomEdgeBrowser; IsSuccess:
+        Boolean; WebErrorStatus: COREWEBVIEW2_WEB_ERROR_STATUS);
     procedure cxButton4Click(Sender: TObject);
     procedure cxButton5Click(Sender: TObject);
     procedure cxButton6Click(Sender: TObject);
     procedure cxButton7Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure cxButton8Click(Sender: TObject);
+    procedure cxButton9Click(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
   private
     procedure data_add;
     procedure data_save;
@@ -110,7 +116,7 @@ type
     StateResult: string; // 🔹 Variable pública para guardar el resultado
     styleAlert: string; // 🔹 Variable pública para guardar el style
     procedure sen_data;
-    function LoadJS: string;
+    function LoadJS(namescript:string): string;
     { Public declarations }
   end;
 
@@ -121,13 +127,18 @@ implementation
 {$R *.dfm}
 
 uses Data, System.JSON;
+function navigate(): string;
+begin
 
-function Tf_minjus.LoadJS(): string;
+  Result := 'navigate()';
+end;
+
+function Tf_minjus.LoadJS(namescript:string): string;
 var JSPath: string; JSCode: string;
 begin
 
   // Ruta del archivo myscript.js (en la misma carpeta que el .exe)
-  JSPath := ExtractFilePath(Application.ExeName) + 'js\minjus\minjus.js';
+  JSPath := ExtractFilePath(Application.ExeName) + 'js\minjus\'+namescript+'.js';
   if FileExists(JSPath) then begin
     // Leer el contenido del archivo .js
     JSCode := TFile.ReadAllText(JSPath, TEncoding.UTF8);
@@ -140,35 +151,64 @@ begin
 
 end;
 
-procedure Tf_minjus.app_edgeExecuteScript(Sender: TCustomEdgeBrowser;
-  AResult: HRESULT; const AResultObjectAsJson: string);
-var JSONObject: TJSONObject;
+procedure Tf_minjus.app_edgeExecuteScript(
+  Sender: TCustomEdgeBrowser;
+  AResult: HRESULT;
+  const AResultObjectAsJson: string);
+var
+  JSONValue: TJSONValue;
+  JSONObject: TJSONObject;
 begin
-  try
-  Memo1.Text:= AResultObjectAsJson;
-//    StyledButton1.Caption := AResultObjectAsJson;
-    // Parsear el JSON devuelto por el script
-    JSONObject := TJSONObject.ParseJSONValue(AResultObjectAsJson)
-      as TJSONObject;
-    if Assigned(JSONObject) then begin
+  Memo1.Text := AResultObjectAsJson;
 
-      // Guardar el valor del campo "state" en la variable pública
-      StateResult := JSONObject.GetValue<string>('state', '');
-      styleAlert := JSONObject.GetValue<string>('StyleClass', '');
-      // Mostrar el valor en el botón (opcional)
+  // Validación básica
+  if (AResultObjectAsJson = '') or (AResultObjectAsJson = 'null') then
+  begin
+    StateResult := 'NULL_RESULT';
+    StyledButton1.Caption := 'Sin datos';
+    Exit;
+  end;
+
+  try
+    JSONValue := TJSONObject.ParseJSONValue(AResultObjectAsJson);
+    try
+      if not (JSONValue is TJSONObject) then
+      begin
+        StateResult := 'INVALID_JSON';
+        StyledButton1.Caption := 'JSON no es objeto';
+        Exit;
+      end;
+
+      JSONObject := JSONValue as TJSONObject;
+
+      // Leer valores de forma segura
+      if not JSONObject.TryGetValue<string>('state', StateResult) then
+        StateResult := '';
+
+      if not JSONObject.TryGetValue<string>('StyleClass', styleAlert) then
+        styleAlert := '';
+
       StyledButton1.Caption := StateResult;
       StyledButton1.StyleClass := styleAlert;
-    end else begin
-      StateResult := 'INVALID_JSON';
-      StyledButton1.Caption := 'Error: JSON inválido';
+
+    finally
+      JSONValue.Free; // ← evita fuga de memoria
     end;
+
   except
-    on E: Exception do begin
+    on E: Exception do
+    begin
       StateResult := 'ERROR';
       ShowMessage(AResultObjectAsJson);
-      StyledButton1.Caption := 'Error parseando JSON: ' + E.Message;
+      StyledButton1.Caption := 'Error JSON: ' + E.Message;
     end;
   end;
+end;
+
+
+procedure Tf_minjus.cxButton1Click(Sender: TObject);
+begin
+app_edge.ExecuteScript(LoadJS('load') +    navigate);
 end;
 
 procedure Tf_minjus.cxButton2Click(Sender: TObject);
@@ -195,10 +235,12 @@ begin
   Result := Format('Postdata("%s","%s")', [cases, pin]);
 end;
 
-function loadweb(): string;
-begin
 
-  Result := 'loadweb()';
+
+procedure Tf_minjus.app_edgeNavigationCompleted(Sender: TCustomEdgeBrowser;
+    IsSuccess: Boolean; WebErrorStatus: COREWEBVIEW2_WEB_ERROR_STATUS);
+begin
+ app_edge.ExecuteScript(LoadJS('minjus') );
 end;
 
 procedure Tf_minjus.cxButton3Click(Sender: TObject);
@@ -237,13 +279,19 @@ begin
 
   // Verificar que ambos parámetros no estén vacíos
   // script.Text := LoadJS;
-  app_edge.ExecuteScript(LoadJS + '  getError(); ');
+//  app_edge.ExecuteScript(LoadJS + '  getError(); ');
+  app_edge.ExecuteScript('  getError(); ');
 
 end;
 
 procedure Tf_minjus.cxButton8Click(Sender: TObject);
 begin
-  app_edge.ExecuteScript(LoadJS + script.Text);
+  app_edge.ExecuteScript(script.Text);
+end;
+
+procedure Tf_minjus.cxButton9Click(Sender: TObject);
+begin
+  app_edge.ExecuteScript( '  getError(); ');
 end;
 
 procedure Tf_minjus.data_add;
@@ -283,7 +331,10 @@ begin
   if (dm.q_cases.RecordCount > 0) or (cases <> '') and (pin <> '') then
   // Verificar que ambos parámetros no estén vacíos
   begin
-    app_edge.ExecuteScript(LoadJS + Post(cases, pin));
+
+
+    app_edge.ExecuteScript(Post(cases, pin));
+//    app_edge.ExecuteScript( Post(cases, pin));
   end else begin
     dialog.Text := 'No se ha insertado todavía un código de caso.';
     dialog.Execute;
@@ -295,8 +346,8 @@ procedure Tf_minjus.Load;
 
 begin
 
-  app_edge.ExecuteScript(LoadJS + loadweb);
-
+  app_edge.ExecuteScript(LoadJS('load') +    navigate);
+//    app_edge.ExecuteScript(LoadJS('minjus') );
 end;
 
 end.

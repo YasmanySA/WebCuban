@@ -25,26 +25,28 @@ object f_minjus: Tf_minjus
     LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
     object app_edge: TEdgeBrowser
       Left = 12
-      Top = -22
+      Top = 104
       Width = 1076
       Height = 285
-      TabOrder = 6
+      TabOrder = 7
       AllowSingleSignOnUsingOSPrimaryAccount = True
       TargetCompatibleBrowserVersion = '117.0.2045.28'
       UserDataFolder = '%LOCALAPPDATA%\bds.exe.WebView2'
       OnExecuteScript = app_edgeExecuteScript
+      OnNavigationCompleted = app_edgeNavigationCompleted
     end
     object cxButton1: TcxButton
       Left = 94
-      Top = -54
+      Top = 72
       Width = 99
       Height = 25
       Caption = 'NAvegar'
       TabOrder = 2
+      OnClick = cxButton1Click
     end
     object cxButton2: TcxButton
       Left = 12
-      Top = -54
+      Top = 72
       Width = 75
       Height = 25
       Caption = 'Activar Consola'
@@ -53,7 +55,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton3: TcxButton
       Left = 200
-      Top = -54
+      Top = 72
       Width = 137
       Height = 25
       Caption = 'send_data'
@@ -62,10 +64,10 @@ object f_minjus: Tf_minjus
     end
     object cxGrid1: TcxGrid
       Left = 12
-      Top = 552
+      Top = 678
       Width = 1076
       Height = 200
-      TabOrder = 13
+      TabOrder = 14
       LookAndFeel.NativeStyle = False
       object cxGrid1DBTableView1: TcxGridDBTableView
         Navigator.Buttons.First.Visible = True
@@ -128,7 +130,7 @@ object f_minjus: Tf_minjus
     end
     object StyledButton1: TStyledButton
       Left = 12
-      Top = 759
+      Top = 885
       Width = 1076
       Height = 50
       Font.Charset = DEFAULT_CHARSET
@@ -137,13 +139,13 @@ object f_minjus: Tf_minjus
       Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 14
+      TabOrder = 15
       StyleRadius = 30
       StyleFamily = 'Bootstrap'
     end
     object cxButton4: TcxButton
       Left = 1023
-      Top = -114
+      Top = 12
       Width = 65
       Height = 53
       LookAndFeel.Kind = lfUltraFlat
@@ -317,7 +319,7 @@ object f_minjus: Tf_minjus
     end
     object edCases: TcxDBTextEdit
       Left = 455
-      Top = 327
+      Top = 453
       AutoSize = False
       DataBinding.DataField = 'numbercase'
       DataBinding.DataSource = DScases
@@ -331,13 +333,13 @@ object f_minjus: Tf_minjus
       StyleFocused.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.NativeStyle = False
       StyleReadOnly.LookAndFeel.NativeStyle = False
-      TabOrder = 7
+      TabOrder = 8
       Height = 27
       Width = 121
     end
     object edPIN: TcxDBTextEdit
       Left = 455
-      Top = 361
+      Top = 487
       AutoSize = False
       DataBinding.DataField = 'pin'
       DataBinding.DataSource = DScases
@@ -346,13 +348,13 @@ object f_minjus: Tf_minjus
       Style.HotTrack = False
       Style.StyleController = cxEditStyleController1
       Style.TransparentBorder = False
-      TabOrder = 8
+      TabOrder = 9
       Height = 38
       Width = 121
     end
     object cxButton5: TcxButton
       Left = 583
-      Top = 327
+      Top = 453
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1004,12 +1006,12 @@ object f_minjus: Tf_minjus
         44AE426082}
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Transparent = True
-      TabOrder = 9
+      TabOrder = 10
       OnClick = cxButton5Click
     end
     object cxButton6: TcxButton
       Left = 665
-      Top = 327
+      Top = 453
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1258,12 +1260,12 @@ object f_minjus: Tf_minjus
         49454E44AE426082}
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Transparent = True
-      TabOrder = 10
+      TabOrder = 11
       OnClick = cxButton6Click
     end
     object cxButton7: TcxButton
       Left = 344
-      Top = -54
+      Top = 72
       Width = 75
       Height = 25
       Caption = 'ver error'
@@ -1271,28 +1273,28 @@ object f_minjus: Tf_minjus
       OnClick = cxButton7Click
     end
     object cxButton8: TcxButton
-      Left = 426
-      Top = -54
+      Left = 508
+      Top = 72
       Width = 183
       Height = 25
       Caption = 'Probar Script'
-      TabOrder = 5
+      TabOrder = 6
       OnClick = cxButton8Click
     end
     object script: TcxMemo
       Left = 70
-      Top = 456
+      Top = 582
       Lines.Strings = (
         'script')
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 12
+      TabOrder = 13
       Height = 89
       Width = 1018
     end
     object Memo1: TMemo
       Left = 71
-      Top = 424
+      Top = 550
       Width = 1016
       Height = 24
       BevelInner = bvNone
@@ -1301,7 +1303,16 @@ object f_minjus: Tf_minjus
       BorderStyle = bsNone
       Lines.Strings = (
         'Memo1')
-      TabOrder = 11
+      TabOrder = 12
+    end
+    object cxButton9: TcxButton
+      Left = 426
+      Top = 72
+      Width = 75
+      Height = 25
+      Caption = 'ver error'
+      TabOrder = 5
+      OnClick = cxButton9Click
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
@@ -1500,7 +1511,7 @@ object f_minjus: Tf_minjus
       ControlOptions.OriginalHeight = 25
       ControlOptions.OriginalWidth = 183
       ControlOptions.ShowBorder = False
-      Index = 4
+      Index = 5
     end
     object dxLayoutItem15: TdxLayoutItem
       Parent = dxLayoutControl1Group_Root
@@ -1518,6 +1529,16 @@ object f_minjus: Tf_minjus
       ControlOptions.OriginalHeight = 24
       ControlOptions.OriginalWidth = 185
       Index = 5
+    end
+    object dxLayoutItem17: TdxLayoutItem
+      Parent = dxLayoutAutoCreatedGroup1
+      AlignVert = avClient
+      CaptionOptions.Visible = False
+      Control = cxButton9
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 75
+      ControlOptions.ShowBorder = False
+      Index = 4
     end
   end
   object DScases: TDataSource
