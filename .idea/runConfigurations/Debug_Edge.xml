@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Debug Edge" type="JavascriptDebugType" editBeforeRun="true" focusToolWindowBeforeRun="true" uri="https://certificaciones.minjus.gob.cu/" useFirstLineBreakpoints="true">
+    <mapping url="https://certificaciones.minjus.gob.cu" local-file="$PROJECT_DIR$/Win64/Debug/js/minjus" />
+    <method v="2">
+      <option name="LaunchBrowser.Before.Run" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" withDebugger="true" />
+    </method>
+  </configuration>
+</component>

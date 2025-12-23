@@ -122,7 +122,7 @@ capturarEnlaces();
 // capturarEnlaces();
 
 
-Postdata("15427436","26MU");
+// Postdata("15427436","26MU");
 // getError();
 
 function getrow() {
