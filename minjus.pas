@@ -49,7 +49,7 @@ type
     cxGrid1: TcxGrid;
     dxLayoutItem5: TdxLayoutItem;
     DScases: TDataSource;
-    StyledButton1: TStyledButton;
+    bt_log: TStyledButton;
     dxLayoutItem6: TdxLayoutItem;
     dialog: TStyledAnimatedTaskDialog;
     dxLayoutGroup1: TdxLayoutGroup;
@@ -90,6 +90,9 @@ type
     dxLayoutItem16: TdxLayoutItem;
     dxLayoutItem17: TdxLayoutItem;
     cxButton9: TcxButton;
+    dxLayoutItem18: TdxLayoutItem;
+    bt_msg: TStyledButton;
+    dxLayoutGroup6: TdxLayoutGroup;
     procedure cxButton2Click(Sender: TObject);
     procedure cxButton3Click(Sender: TObject);
     procedure app_edgeExecuteScript(Sender: TCustomEdgeBrowser;
@@ -104,9 +107,12 @@ type
     procedure cxButton8Click(Sender: TObject);
     procedure cxButton9Click(Sender: TObject);
     procedure cxButton1Click(Sender: TObject);
+    procedure getInfo;
+    procedure getStatus;
   private
     procedure data_add;
     procedure data_save;
+    procedure exec_script(js:string;call: string);
 
     procedure Load;
 
@@ -114,7 +120,10 @@ type
   public
 
     StateResult: string; // 🔹 Variable pública para guardar el resultado
+    msgResult: string; // 🔹 Variable pública para guardar el resultado
     styleAlert: string; // 🔹 Variable pública para guardar el style
+    styleAlert2: string; // 🔹 Variable pública para guardar el style
+    procedure getError;
     procedure sen_data;
     function LoadJS(namescript:string): string;
     { Public declarations }
@@ -123,10 +132,29 @@ type
 var f_minjus: Tf_minjus;
 
 implementation
-
+               uses Data, System.JSON;
 {$R *.dfm}
+procedure Tf_minjus.exec_script(js:string;call: string);
 
-uses Data, System.JSON;
+
+
+begin
+
+if js= ''  then begin
+
+  app_edge.ExecuteScript( call);
+
+
+end else
+begin
+  app_edge.ExecuteScript(js+ call);
+end;
+
+
+end;
+
+
+
 function navigate(): string;
 begin
 
@@ -159,13 +187,17 @@ var
   JSONValue: TJSONValue;
   JSONObject: TJSONObject;
 begin
+///////////bt_log representa el log de las salidas de los script
+
+
   Memo1.Text := AResultObjectAsJson;
 
   // Validación básica
   if (AResultObjectAsJson = '') or (AResultObjectAsJson = 'null') then
   begin
     StateResult := 'NULL_RESULT';
-    StyledButton1.Caption := 'Sin datos';
+    bt_log.Caption := 'Esperando...';
+    bt_log.StyleClass := 'Info';
     Exit;
   end;
 
@@ -175,7 +207,7 @@ begin
       if not (JSONValue is TJSONObject) then
       begin
         StateResult := 'INVALID_JSON';
-        StyledButton1.Caption := 'JSON no es objeto';
+        bt_log.Caption := 'JSON no es objeto';
         Exit;
       end;
 
@@ -185,11 +217,16 @@ begin
       if not JSONObject.TryGetValue<string>('state', StateResult) then
         StateResult := '';
 
+
       if not JSONObject.TryGetValue<string>('StyleClass', styleAlert) then
         styleAlert := '';
+           if not JSONObject.TryGetValue<string>('StyleClass2', styleAlert2) then
+        styleAlert2 := '';
 
-      StyledButton1.Caption := StateResult;
-      StyledButton1.StyleClass := styleAlert;
+
+      bt_log.Caption := StateResult;
+      bt_log.StyleClass := styleAlert;
+      bt_msg.StyleClass := styleAlert2;
 
     finally
       JSONValue.Free; // ← evita fuga de memoria
@@ -200,7 +237,7 @@ begin
     begin
       StateResult := 'ERROR';
       ShowMessage(AResultObjectAsJson);
-      StyledButton1.Caption := 'Error JSON: ' + E.Message;
+      bt_log.Caption := 'Error JSON: ' + E.Message;
     end;
   end;
 end;
@@ -244,11 +281,77 @@ begin
 end;
 
 procedure Tf_minjus.cxButton3Click(Sender: TObject);
-
 begin
+  // Ejecutar primero
   sen_data;
 
+  TThread.CreateAnonymousThread(
+    procedure
+    begin
+      try
+        Sleep(1000);
+
+        // getError
+        TThread.Queue(nil,
+          procedure
+          begin
+            getError;
+          end
+        );
+
+        Sleep(1500);
+
+        // getStatus
+        TThread.Queue(nil,
+          procedure
+          begin
+            getStatus;
+          end
+        );
+
+        Sleep(3000);
+
+        // getInfo
+        TThread.Queue(nil,
+          procedure
+          begin
+            getInfo;
+          end
+        );
+        Sleep(1500);
+
+        // getInfo
+        TThread.Queue(nil,
+          procedure
+          begin
+         exec_script(LoadJS('download'),'; Open_table() ');
+          end
+        );
+         Sleep(1500);
+
+        // getInfo
+        TThread.Queue(nil,
+          procedure
+          begin
+         exec_script('',' getLink() ');
+          end
+        );
+
+      except
+        on E: Exception do
+          TThread.Queue(nil,
+            procedure
+            begin
+              ShowMessage('Error en hilo: ' + E.Message);
+            end
+          );
+      end;
+    end
+  ).Start;
 end;
+
+
+
 
 procedure Tf_minjus.cxButton4Click(Sender: TObject);
 begin
@@ -277,10 +380,13 @@ procedure Tf_minjus.cxButton7Click(Sender: TObject);
 var JSPath: string; JSCode: string;
 begin
 
-  // Verificar que ambos parámetros no estén vacíos
-  // script.Text := LoadJS;
-//  app_edge.ExecuteScript(LoadJS + '  getError(); ');
-  app_edge.ExecuteScript('  getError(); ');
+
+(*TODO: extracted code
+exec_script('  getstatus(); ');
+*)
+getStatus;
+
+
 
 end;
 
@@ -291,7 +397,12 @@ end;
 
 procedure Tf_minjus.cxButton9Click(Sender: TObject);
 begin
-  app_edge.ExecuteScript( '  getError(); ');
+
+  (*TODO: extracted code
+  exec_script('  getInfo(); ');
+  *)
+  getInfo;
+
 end;
 
 procedure Tf_minjus.data_add;
@@ -303,6 +414,8 @@ procedure Tf_minjus.data_save;
 begin
   dm.q_cases.Post;
 end;
+
+
 
 procedure Tf_minjus.FormCreate(Sender: TObject);
 begin
@@ -318,23 +431,38 @@ begin
     end).Start;
 end;
 
+procedure Tf_minjus.getError;
+begin
+exec_script( '' ,'  getError(); ');
+end;
+
+procedure Tf_minjus.getInfo;
+begin
+  exec_script( '' , '  getInfo(); ');
+end;
+
+procedure Tf_minjus.getStatus;
+begin
+  exec_script('', '  getstatus(); ');
+end;
+
 procedure Tf_minjus.sen_data;
 var cases: string; pin: string; JSPath: string; JSCode: string;
 begin
-  with dm do begin
+  with dm.q_cases do begin
 
-    cases := q_casesnumbercase.Value;
-    pin := q_casespin.Value;
-  end;
+    cases := FieldByName('numbercase').Value;
+    pin := FieldByName('pin').Value;
+    end;
+
   // Ruta del archivo myscript.js (en la misma carpeta que el .exe)
 
   if (dm.q_cases.RecordCount > 0) or (cases <> '') and (pin <> '') then
   // Verificar que ambos parámetros no estén vacíos
   begin
+    exec_script(LoadJS('post') , Post(cases, pin));
 
 
-    app_edge.ExecuteScript(Post(cases, pin));
-//    app_edge.ExecuteScript( Post(cases, pin));
   end else begin
     dialog.Text := 'No se ha insertado todavía un código de caso.';
     dialog.Execute;

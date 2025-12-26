@@ -15,6 +15,7 @@ type
   Tdm = class(TDataModule)
     db: TFDConnection;
     q_cases: TFDQuery;
+    FDPhysMSSQLDriverLink1: TFDPhysMSSQLDriverLink;
     q_casesID: TLargeintField;
     q_casesdate_add: TSQLTimeStampField;
     q_casesnumbercase: TStringField;
@@ -23,7 +24,6 @@ type
     q_casesstat_msg: TStringField;
     q_casestype: TIntegerField;
     q_casesname: TStringField;
-    FDPhysMSSQLDriverLink1: TFDPhysMSSQLDriverLink;
   private
     { Private declarations }
   public

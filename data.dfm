@@ -27,33 +27,43 @@ object dm: Tdm
     Left = 224
     Top = 136
     object q_casesID: TLargeintField
+      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInWhere, pfInKey]
       ReadOnly = True
     end
     object q_casesdate_add: TSQLTimeStampField
       FieldName = 'date_add'
+      Origin = 'date_add'
     end
     object q_casesnumbercase: TStringField
       FieldName = 'numbercase'
+      Origin = 'numbercase'
       Size = 255
     end
     object q_casespin: TStringField
       FieldName = 'pin'
+      Origin = 'pin'
       Size = 255
     end
     object q_casesstate: TStringField
       FieldName = 'state'
+      Origin = 'state'
       Size = 255
     end
     object q_casesstat_msg: TStringField
       FieldName = 'stat_msg'
+      Origin = 'stat_msg'
       Size = 255
     end
     object q_casestype: TIntegerField
       FieldName = 'type'
+      Origin = 'type'
     end
     object q_casesname: TStringField
       FieldName = 'name'
+      Origin = 'name'
       Size = 255
     end
   end
