@@ -35,6 +35,7 @@ function getstatus() {
         }, 3000);
 
         return {
+            action: "open",
             state: "Certificación disponible para descargar",
             StyleClass: "Success"
         };

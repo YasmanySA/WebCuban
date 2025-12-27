@@ -15,7 +15,7 @@ function Open_table() {
 
 }
 
-// Open()
+// Open_table()
 function getLink() {
 
             const botonAbrir = document.querySelector(
@@ -35,7 +35,7 @@ function getLink() {
 
 
 }
-// obtenerAbrir()
+// getLink()
 // Función que hace click en "Vista" y llama a la función anterior
 
 

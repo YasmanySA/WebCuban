@@ -5,7 +5,7 @@ object f_minjus: Tf_minjus
   BorderStyle = bsNone
   Caption = 'f_minjus'
   ClientHeight = 821
-  ClientWidth = 1117
+  ClientWidth = 1148
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,17 +18,17 @@ object f_minjus: Tf_minjus
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1117
+    Width = 1148
     Height = 821
     Align = alClient
     TabOrder = 0
     LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
     object app_edge: TEdgeBrowser
       Left = 12
-      Top = 71
-      Width = 1076
+      Top = 59
+      Width = 1107
       Height = 145
-      TabOrder = 7
+      TabOrder = 8
       AllowSingleSignOnUsingOSPrimaryAccount = True
       TargetCompatibleBrowserVersion = '117.0.2045.28'
       UserDataFolder = '%LOCALAPPDATA%\bds.exe.WebView2'
@@ -37,37 +37,37 @@ object f_minjus: Tf_minjus
     end
     object cxButton1: TcxButton
       Left = 94
-      Top = 39
+      Top = 27
       Width = 99
       Height = 25
       Caption = 'NAvegar'
-      TabOrder = 2
+      TabOrder = 3
       OnClick = cxButton1Click
     end
     object cxButton2: TcxButton
       Left = 12
-      Top = 39
+      Top = 27
       Width = 75
       Height = 25
       Caption = 'Activar Consola'
-      TabOrder = 1
+      TabOrder = 2
       OnClick = cxButton2Click
     end
     object cxButton3: TcxButton
       Left = 200
-      Top = 39
+      Top = 27
       Width = 137
       Height = 25
       Caption = 'send_data'
-      TabOrder = 3
+      TabOrder = 4
       OnClick = cxButton3Click
     end
     object cxGrid1: TcxGrid
       Left = 12
-      Top = 505
-      Width = 1076
+      Top = 501
+      Width = 1107
       Height = 200
-      TabOrder = 14
+      TabOrder = 17
       LookAndFeel.NativeStyle = False
       object cxGrid1DBTableView1: TcxGridDBTableView
         Navigator.Buttons.First.Visible = True
@@ -130,8 +130,8 @@ object f_minjus: Tf_minjus
     end
     object bt_log: TStyledButton
       Left = 12
-      Top = 712
-      Width = 1076
+      Top = 708
+      Width = 1107
       Height = 48
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -139,14 +139,14 @@ object f_minjus: Tf_minjus
       Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 15
+      TabOrder = 18
       StyleRadius = 30
       StyleRoundedCorners = [rcBottomRight, rcBottomLeft]
       StyleFamily = 'Bootstrap'
     end
     object cxButton4: TcxButton
-      Left = 1023
-      Top = -21
+      Left = 1054
+      Top = -33
       Width = 65
       Height = 53
       LookAndFeel.Kind = lfUltraFlat
@@ -315,12 +315,12 @@ object f_minjus: Tf_minjus
         2CDF2FDCFE1F1E393BB4DFA8B6500000000049454E44AE426082}
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
-      TabOrder = 0
+      TabOrder = 1
       OnClick = cxButton4Click
     end
     object edCases: TcxDBTextEdit
-      Left = 426
-      Top = 280
+      Left = 441
+      Top = 268
       AutoSize = False
       DataBinding.DataField = 'numbercase'
       DataBinding.DataSource = DScases
@@ -334,13 +334,13 @@ object f_minjus: Tf_minjus
       StyleFocused.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.NativeStyle = False
       StyleReadOnly.LookAndFeel.NativeStyle = False
-      TabOrder = 8
+      TabOrder = 9
       Height = 27
       Width = 121
     end
     object edPIN: TcxDBTextEdit
-      Left = 426
-      Top = 314
+      Left = 441
+      Top = 302
       AutoSize = False
       DataBinding.DataField = 'pin'
       DataBinding.DataSource = DScases
@@ -349,13 +349,13 @@ object f_minjus: Tf_minjus
       Style.HotTrack = False
       Style.StyleController = cxEditStyleController1
       Style.TransparentBorder = False
-      TabOrder = 9
+      TabOrder = 10
       Height = 38
       Width = 121
     end
     object cxButton5: TcxButton
-      Left = 554
-      Top = 280
+      Left = 569
+      Top = 268
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1007,12 +1007,12 @@ object f_minjus: Tf_minjus
         44AE426082}
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Transparent = True
-      TabOrder = 10
+      TabOrder = 11
       OnClick = cxButton5Click
     end
     object cxButton6: TcxButton
-      Left = 636
-      Top = 280
+      Left = 651
+      Top = 268
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1261,42 +1261,42 @@ object f_minjus: Tf_minjus
         49454E44AE426082}
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Transparent = True
-      TabOrder = 11
+      TabOrder = 12
       OnClick = cxButton6Click
     end
     object cxButton7: TcxButton
       Left = 344
-      Top = 39
+      Top = 27
       Width = 75
       Height = 25
       Caption = 'Check Error'
-      TabOrder = 4
+      TabOrder = 5
       OnClick = cxButton7Click
     end
     object cxButton8: TcxButton
       Left = 508
-      Top = 39
+      Top = 27
       Width = 183
       Height = 25
       Caption = 'Probar Script'
-      TabOrder = 6
+      TabOrder = 7
       OnClick = cxButton8Click
     end
     object script: TcxMemo
-      Left = 70
-      Top = 409
+      Left = 109
+      Top = 397
       Lines.Strings = (
         'script')
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 13
+      TabOrder = 14
       Height = 89
-      Width = 1018
+      Width = 442
     end
     object Memo1: TMemo
-      Left = 71
-      Top = 377
-      Width = 1016
+      Left = 110
+      Top = 365
+      Width = 1008
       Height = 24
       BevelInner = bvNone
       BevelKind = bkFlat
@@ -1304,21 +1304,21 @@ object f_minjus: Tf_minjus
       BorderStyle = bsNone
       Lines.Strings = (
         'Memo1')
-      TabOrder = 12
+      TabOrder = 13
     end
     object cxButton9: TcxButton
       Left = 426
-      Top = 39
+      Top = 27
       Width = 75
       Height = 25
       Caption = 'info'
-      TabOrder = 5
+      TabOrder = 6
       OnClick = cxButton9Click
     end
     object bt_msg: TStyledButton
       Left = 12
-      Top = 767
-      Width = 1076
+      Top = 763
+      Width = 1107
       Height = 54
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1326,16 +1326,60 @@ object f_minjus: Tf_minjus
       Font.Name = 'Arial'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 16
+      TabOrder = 19
       StyleRadius = 30
       StyleRoundedCorners = [rcBottomRight, rcBottomLeft]
       StyleFamily = 'Bootstrap'
+    end
+    object url_edit: TcxHyperLinkEdit
+      Left = 109
+      Top = -33
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 0
+      Text = 'url_edit'
+      Width = 900
+    end
+    object cxCheckListBox1: TcxCheckListBox
+      Left = 640
+      Top = 397
+      Width = 479
+      Height = 97
+      Columns = 2
+      Items = <
+        item
+          Text = 'Posdata'
+        end
+        item
+          Text = 'GetError'
+        end
+        item
+          Text = 'GetStatus'
+        end
+        item
+          Text = 'Vista'
+        end
+        item
+          Text = 'Link'
+        end>
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 16
+    end
+    object Button1: TButton
+      Left = 558
+      Top = 397
+      Width = 75
+      Height = 25
+      Caption = 'Button1'
+      TabOrder = 15
+      OnClick = Button1Click
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
       AlignVert = avClient
       Hidden = True
-      ItemIndex = 8
+      ItemIndex = 6
       ShowBorder = False
       Index = -1
     end
@@ -1420,7 +1464,7 @@ object f_minjus: Tf_minjus
       ControlOptions.OriginalHeight = 53
       ControlOptions.OriginalWidth = 65
       ControlOptions.ShowBorder = False
-      Index = 0
+      Index = 1
     end
     object dxLayoutItem8: TdxLayoutItem
       Parent = dxLayoutGroup3
@@ -1533,13 +1577,15 @@ object f_minjus: Tf_minjus
       Index = 5
     end
     object dxLayoutItem15: TdxLayoutItem
-      Parent = dxLayoutControl1Group_Root
+      Parent = dxLayoutAutoCreatedGroup2
+      AlignHorz = ahClient
+      AlignVert = avTop
       CaptionOptions.Text = 'cxMemo1'
       Control = script
       ControlOptions.OriginalHeight = 89
       ControlOptions.OriginalWidth = 185
       ControlOptions.ShowBorder = False
-      Index = 6
+      Index = 0
     end
     object dxLayoutItem16: TdxLayoutItem
       Parent = dxLayoutControl1Group_Root
@@ -1572,9 +1618,44 @@ object f_minjus: Tf_minjus
     end
     object dxLayoutGroup6: TdxLayoutGroup
       Parent = dxLayoutControl1Group_Root
+      CaptionOptions.Text = 'Hidden Group'
       Hidden = True
       ShowBorder = False
       Index = 8
+    end
+    object dxLayoutItem19: TdxLayoutItem
+      Parent = dxLayoutGroup1
+      CaptionOptions.Text = 'cxHyperLinkEdit1'
+      Control = url_edit
+      ControlOptions.OriginalHeight = 21
+      ControlOptions.OriginalWidth = 900
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem20: TdxLayoutItem
+      Parent = dxLayoutAutoCreatedGroup2
+      AlignVert = avClient
+      Control = cxCheckListBox1
+      ControlOptions.OriginalHeight = 97
+      ControlOptions.OriginalWidth = 479
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
+    object dxLayoutAutoCreatedGroup2: TdxLayoutAutoCreatedGroup
+      Parent = dxLayoutControl1Group_Root
+      AlignVert = avTop
+      LayoutDirection = ldHorizontal
+      Index = 6
+    end
+    object dxLayoutItem21: TdxLayoutItem
+      Parent = dxLayoutAutoCreatedGroup2
+      CaptionOptions.Text = 'Button1'
+      CaptionOptions.Visible = False
+      Control = Button1
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 75
+      ControlOptions.ShowBorder = False
+      Index = 1
     end
   end
   object DScases: TDataSource
@@ -1633,8 +1714,48 @@ object f_minjus: Tf_minjus
       PixelsPerInch = 96
     end
   end
+  object IntervalExecute: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = IntervalExecuteTimer
+    Left = 56
+    Top = 272
+  end
+  object timerPostData: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = timerPostDataTimer
+    Left = 160
+    Top = 304
+  end
+  object timerGetError: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = timerGetErrorTimer
+    Left = 192
+    Top = 224
+  end
+  object getresponse_timer: TTimer
+    Interval = 100
+    OnTimer = getresponse_timerTimer
+    Left = 328
+    Top = 344
+  end
+  object timeGetstatus: TTimer
+    Interval = 100
+    OnTimer = timeGetstatusTimer
+    Left = 312
+    Top = 232
+  end
   object Timer1: TTimer
-    Left = 848
-    Top = 456
+    Interval = 1
+    OnTimer = Timer1Timer
+    Left = 880
+    Top = 304
+  end
+  object viewTimeStatedebug: TTimer
+    OnTimer = viewTimeStatedebugTimer
+    Left = 1016
+    Top = 312
   end
 end

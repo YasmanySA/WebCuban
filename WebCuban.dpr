@@ -8,7 +8,9 @@ uses
   minjus in 'minjus.pas' {f_minjus},
   data in 'data.pas' {dm: TDataModule},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  JsonDataObjects in 'JsonDataObjects.pas',
+  uJsonHandler in 'uJsonHandler.pas';
 
 {$R *.res}
 

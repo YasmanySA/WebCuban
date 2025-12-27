@@ -7,6 +7,7 @@ var INPUT_DOCUMENT =
     "tracker_Show?CTO_UID_OBJ=7745944765ce5972287f1f0082113289&CTO_TYPE_OBJ=INPUT_DOCUMENT";
 var DYNAFORM =
     "tracker_Show?CTO_UID_OBJ=2473970175d10d8284601e4012429159&CTO_TYPE_OBJ=DYNAFORM";
+var url_tracker_DynaDocs = "https://certificaciones.minjus.gob.cu/sysmin_jus/es-ES/minjus/tracker/tracker_DynaDocs"
 
 // Función que espera el formulario y obtiene el enlace "Abrir"
 
@@ -93,28 +94,28 @@ function Postdata(cases, pin) {
     const submitButton = document.getElementById("form[BSUBMIT]");
 
     // Verificar que los elementos existen antes de usarlos
-    if (!caseInput || !pinInput || !submitButton) {
-        console.error(
-            "❌ Error: No se encontraron uno o más elementos del formulario."
-        );
-        return { state: "ERROR", message: "Elementos no encontrados" };
-    }
+    // if (!caseInput || !pinInput || !submitButton) {
+    //     console.error(
+    //         "❌ Error: No se encontraron uno o más elementos del formulario."
+    //     );
+    //     // return { state: "Enviando datos ", StyleClass: "Primary" };
+    // }
 
-    // Asignar valores
+
     caseInput.value = cases;
     pinInput.value = pin;
 
-    // Enviar formulario
-    submitButton.click();
 
-    // Devolver respuesta
-    return { state: "OK" };
+    submitButton.click();
+    // return { code_status: "1" };
+
+
 
 }
 
 
 function getError() {
-    var isLoginPage = window.location.href.includes(
+    const isLoginPage = window.location.href.includes(
         url_login
     );
     var error = document.getElementById("temporalMessageERROR");
@@ -150,7 +151,7 @@ function getError() {
         }
     } else {
         // Si no estamos en la página de login
-        return {state: "Entrando al sistema", StyleClass: "Success"};
+        return {action: "Login" , state: "Entrando al sistema", StyleClass: "Success"};
     }
 }
 //
@@ -231,7 +232,7 @@ function getstatus() {
 
     var DYNAFORM =
         "tracker_Show?CTO_UID_OBJ=2473970175d10d8284601e4012429159&CTO_TYPE_OBJ=DYNAFORM";
-
+/* id table es este elemento <table id="table[cDlXUno1dllwbMKwazVwTFE0SnFyMFhYbW9jUjAyNVBtWXFqZDRB]" name="table[tracker_DynaDocs]" cellspacing="0" cellpadding="0" width="100%" class="pagedTable"> */
     var idtable = "table[cDlXUno1dllwbMKwazVwTFE0SnFyMFhYbW9jUjAyNVBtWXFqZDRB]";
     var get_table = document.querySelector(`#${CSS.escape(idtable)}`);
 
@@ -261,6 +262,7 @@ function getstatus() {
         }, 1500);
 
         return {
+            action: "open_document",
             state: "Certificación disponible para descargar",
             StyleClass: "Success"
         };
