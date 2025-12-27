@@ -25,7 +25,7 @@ object f_minjus: Tf_minjus
     LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
     object app_edge: TEdgeBrowser
       Left = 12
-      Top = 59
+      Top = 104
       Width = 1107
       Height = 145
       TabOrder = 8
@@ -37,7 +37,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton1: TcxButton
       Left = 94
-      Top = 27
+      Top = 72
       Width = 99
       Height = 25
       Caption = 'NAvegar'
@@ -46,7 +46,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton2: TcxButton
       Left = 12
-      Top = 27
+      Top = 72
       Width = 75
       Height = 25
       Caption = 'Activar Consola'
@@ -55,7 +55,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton3: TcxButton
       Left = 200
-      Top = 27
+      Top = 72
       Width = 137
       Height = 25
       Caption = 'send_data'
@@ -64,7 +64,7 @@ object f_minjus: Tf_minjus
     end
     object cxGrid1: TcxGrid
       Left = 12
-      Top = 501
+      Top = 546
       Width = 1107
       Height = 200
       TabOrder = 17
@@ -130,7 +130,7 @@ object f_minjus: Tf_minjus
     end
     object bt_log: TStyledButton
       Left = 12
-      Top = 708
+      Top = 753
       Width = 1107
       Height = 48
       Font.Charset = DEFAULT_CHARSET
@@ -146,7 +146,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton4: TcxButton
       Left = 1054
-      Top = -33
+      Top = 12
       Width = 65
       Height = 53
       LookAndFeel.Kind = lfUltraFlat
@@ -320,7 +320,7 @@ object f_minjus: Tf_minjus
     end
     object edCases: TcxDBTextEdit
       Left = 441
-      Top = 268
+      Top = 313
       AutoSize = False
       DataBinding.DataField = 'numbercase'
       DataBinding.DataSource = DScases
@@ -340,7 +340,7 @@ object f_minjus: Tf_minjus
     end
     object edPIN: TcxDBTextEdit
       Left = 441
-      Top = 302
+      Top = 347
       AutoSize = False
       DataBinding.DataField = 'pin'
       DataBinding.DataSource = DScases
@@ -355,7 +355,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton5: TcxButton
       Left = 569
-      Top = 268
+      Top = 313
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1012,7 +1012,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton6: TcxButton
       Left = 651
-      Top = 268
+      Top = 313
       Width = 75
       Height = 72
       LookAndFeel.Kind = lfUltraFlat
@@ -1266,7 +1266,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton7: TcxButton
       Left = 344
-      Top = 27
+      Top = 72
       Width = 75
       Height = 25
       Caption = 'Check Error'
@@ -1275,7 +1275,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton8: TcxButton
       Left = 508
-      Top = 27
+      Top = 72
       Width = 183
       Height = 25
       Caption = 'Probar Script'
@@ -1284,7 +1284,7 @@ object f_minjus: Tf_minjus
     end
     object script: TcxMemo
       Left = 109
-      Top = 397
+      Top = 442
       Lines.Strings = (
         'script')
       Style.HotTrack = False
@@ -1295,7 +1295,7 @@ object f_minjus: Tf_minjus
     end
     object Memo1: TMemo
       Left = 110
-      Top = 365
+      Top = 410
       Width = 1008
       Height = 24
       BevelInner = bvNone
@@ -1308,7 +1308,7 @@ object f_minjus: Tf_minjus
     end
     object cxButton9: TcxButton
       Left = 426
-      Top = 27
+      Top = 72
       Width = 75
       Height = 25
       Caption = 'info'
@@ -1317,7 +1317,7 @@ object f_minjus: Tf_minjus
     end
     object bt_msg: TStyledButton
       Left = 12
-      Top = 763
+      Top = 808
       Width = 1107
       Height = 54
       Font.Charset = DEFAULT_CHARSET
@@ -1333,7 +1333,7 @@ object f_minjus: Tf_minjus
     end
     object url_edit: TcxHyperLinkEdit
       Left = 109
-      Top = -33
+      Top = 12
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 0
@@ -1342,7 +1342,7 @@ object f_minjus: Tf_minjus
     end
     object cxCheckListBox1: TcxCheckListBox
       Left = 640
-      Top = 397
+      Top = 442
       Width = 479
       Height = 97
       Columns = 2
@@ -1368,7 +1368,7 @@ object f_minjus: Tf_minjus
     end
     object Button1: TButton
       Left = 558
-      Top = 397
+      Top = 442
       Width = 75
       Height = 25
       Caption = 'Button1'

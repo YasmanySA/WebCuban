@@ -154,7 +154,7 @@ type
 
     { Private declarations }
   public
-  codestatus:string;
+  action:string;
   responseScript:string;
     url_navigate:string ;
     StateResult: string; // 🔹 Variable pública para guardar el resultado
@@ -192,7 +192,7 @@ procedure Tf_minjus.exec_script(js:string;call: string);
 
 
 begin
-
+ 
 if js= ''  then begin
 
   app_edge.ExecuteScript( call);
@@ -539,7 +539,7 @@ begin
     // Leer una sola vez
     State := Obj.AsString('state');
     StyleClass := Obj.AsString('StyleClass');
-    codestatus:= Obj.AsString('code');
+    action:= Obj.AsString('action');
 
     if State <> '' then
     begin
@@ -613,25 +613,25 @@ end;
 procedure Tf_minjus.timeGetstatusTimer(Sender: TObject);
 
 begin
-   if (app_edge.LocationURL = INPUT_DOCUMENT) or
-   (app_edge.LocationURL = DYNAFORM ) then
+   if (app_edge.LocationURL = url_tracker + INPUT_DOCUMENT) or
+   (app_edge.LocationURL = url_tracker + DYNAFORM ) then
    begin
      false_(timeGetstatus);
    end;
 
 
-//
-//    if  url_navigate= url_tracker_DynaDocs  then
-//    if codestatus = 'CS01' then
-//
-//    begin
-//     getStatus;
-//         false_(timerGetError);
-////      getStatus;
-////      false_(timerGetError);
-////      false_(timeGetstatus);
-//
-//    end;
+
+    if  url_navigate= url_tracker_DynaDocs  then
+    if action = 'Login' then
+
+    begin
+     getStatus;
+         false_(timerGetError);
+//      getStatus;
+//      false_(timerGetError);
+//      false_(timeGetstatus);
+
+    end;
 
 ////  true_(getresponse_timer)  ;
 
