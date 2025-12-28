@@ -1739,7 +1739,7 @@ object f_minjus: Tf_minjus
     Interval = 100
     OnTimer = getresponse_timerTimer
     Left = 328
-    Top = 344
+    Top = 368
   end
   object timeGetstatus: TTimer
     Interval = 100
@@ -1756,6 +1756,12 @@ object f_minjus: Tf_minjus
   object viewTimeStatedebug: TTimer
     OnTimer = viewTimeStatedebugTimer
     Left = 1016
+    Top = 312
+  end
+  object timerOpenview: TTimer
+    Enabled = False
+    OnTimer = timerOpenviewTimer
+    Left = 256
     Top = 312
   end
 end

@@ -30,7 +30,7 @@ uses Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   Vcl.StyledTaskDialog, Vcl.StyledAnimatedTaskDialog, dxLayoutcxEditAdapters,
   cxContainer, cxTextEdit, dxLayoutLookAndFeels, cxDBEdit, Vcl.ExtCtrls,
   JvExStdCtrls, JvMemo, cxMemo,JsonDataObjects,uJsonHandler, cxHyperLinkEdit,
-  cxGroupBox, cxCheckGroup, cxCheckBox, cxCustomListBox, cxCheckListBox;
+  cxGroupBox, cxCheckGroup, cxCheckBox, cxCustomListBox,Winapi.ShellAPI, cxCheckListBox;
 
 type
   Tf_minjus = class(TForm)
@@ -107,6 +107,7 @@ type
     dxLayoutAutoCreatedGroup2: TdxLayoutAutoCreatedGroup;
     Button1: TButton;
     dxLayoutItem21: TdxLayoutItem;
+    timerOpenview: TTimer;
     const
  url_login =
     'https://certificaciones.minjus.gob.cu/sysmin_jus/es-ES/minjus/tracker/login';
@@ -143,6 +144,7 @@ type
     procedure timeGetstatusTimer(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure timerGetErrorTimer(Sender: TObject);
+    procedure timerOpenviewTimer(Sender: TObject);
     procedure timerPostDataTimer(Sender: TObject);
     procedure viewTimeStatedebugTimer(Sender: TObject);
   private
@@ -155,6 +157,7 @@ type
     { Private declarations }
   public
   action:string;
+  link:string;
   responseScript:string;
     url_navigate:string ;
     StateResult: string; // 🔹 Variable pública para guardar el resultado
@@ -518,6 +521,7 @@ var
   Obj: TJsonObj;
   State: string;
   StyleClass: string;
+//  link: string;
 begin
   Memo1.Text:= responseScript;
 
@@ -540,6 +544,15 @@ begin
     State := Obj.AsString('state');
     StyleClass := Obj.AsString('StyleClass');
     action:= Obj.AsString('action');
+
+
+
+//   if  Obj.AsString('link').Length > 5 then begin
+     link:= Obj.AsString('link');
+//   end;
+
+
+
 
     if State <> '' then
     begin
@@ -613,11 +626,7 @@ end;
 procedure Tf_minjus.timeGetstatusTimer(Sender: TObject);
 
 begin
-   if (app_edge.LocationURL = url_tracker + INPUT_DOCUMENT) or
-   (app_edge.LocationURL = url_tracker + DYNAFORM ) then
-   begin
-     false_(timeGetstatus);
-   end;
+
 
 
 
@@ -632,6 +641,14 @@ begin
 //      false_(timeGetstatus);
 
     end;
+
+       if (app_edge.LocationURL = url_tracker + INPUT_DOCUMENT) or
+   (app_edge.LocationURL = url_tracker + DYNAFORM ) then
+   begin
+   true_(timerOpenview);
+     false_(timeGetstatus);
+
+   end;
 
 ////  true_(getresponse_timer)  ;
 
@@ -669,6 +686,32 @@ end;
 
 end;
 
+procedure Tf_minjus.timerOpenviewTimer(Sender: TObject);
+begin
+    if action= 'open_document' then
+                                     begin
+    exec_script('',' Open_table() ');
+
+
+                                     end;
+//
+//
+     if action= 'download' then
+     begin
+       exec_script('',' getLink() ');
+     end;
+     if action= 'end' then
+     begin
+       ShellExecute(0, 'open', pchar(link),nil, nil, SW_SHOWNORMAL);
+
+      false_(timerOpenview);
+     end;
+
+
+
+
+end;
+
 function  Tf_minjus.url_app():Boolean;
 begin
 
@@ -679,13 +722,14 @@ procedure Tf_minjus.timerPostDataTimer(Sender: TObject);
 begin
 
 sen_data  ;
+ true_(timeGetstatus);
 true_(timerGetError);
 
 
    if  url_navigate= url_tracker_DynaDocs  then
 
 begin
- true_(timeGetstatus);
+// true_(timeGetstatus);
 true_(timerGetError);
 
 false_(timerPostData);
@@ -702,7 +746,7 @@ begin
 cxCheckListBox1.Items[0].Checked:= timerPostData.Enabled;
 cxCheckListBox1.Items[1].Checked:= timerGetError.Enabled;
 cxCheckListBox1.Items[2].Checked:= timeGetstatus.Enabled;
-//cxCheckListBox1.Items[3].Checked:= timeGetstatus.Enabled;
+cxCheckListBox1.Items[3].Checked:= timerOpenview.Enabled;
 //cxCheckListBox1.Items[4].Checked:= timeGetstatus.Enabled;
 //cxCheckListBox1.Properties.Items.Items[3].Enabled:= timerPostData.Enabled;
 //cxCheckListBox1.Properties.Items.Items[4].Enabled:= timerPostData.Enabled;

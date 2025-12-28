@@ -1,17 +1,22 @@
 // Función que espera el formulario y obtiene el enlace "Abrir"
 
 function Open_table() {
-    const botonVista = document.querySelector('.pagedTable a.tableOption');
+    const btView = document.querySelector('.pagedTable a.tableOption');
 
-    if (!botonVista) {
-        return Promise.resolve({
-            // success: false,
-            // link: null,
-            // message: 'Botón Vista no encontrado'
-        });
-    }
+    if (btView) {
+        btView.click();
+        return {
+            action: "download",
+            state: "Descargando Certificación",
+            StyleClass: "Success"
+        };
+         // hace click en Vista
+    } else {
 
-    botonVista.click(); // hace click en Vista
+
+return {status: false};    }
+
+
 
 }
 
@@ -26,7 +31,7 @@ function getLink() {
 
                 // botonAbrir.click(); // hace click en Abrir
                 return {
-                    success: true,
+                    action: "end",
                     link: botonAbrir.href,
                     state: 'Certificación descargada con exito',
                     styleClass: 'success'

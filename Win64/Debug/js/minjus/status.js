@@ -30,12 +30,12 @@ function getstatus() {
     // 🔹 CASO 2 FILAS
     if (rows_count === 2 && enlaces.length > 0) {
 
-        setTimeout(() => {
+        // setTimeout(() => {
             window.location.href = url_tracker + enlaces[0].href;
-        }, 3000);
+        // }, 3000);
 
         return {
-            action: "open",
+            action: "open_document",
             state: "Certificación disponible para descargar",
             StyleClass: "Success"
         };
@@ -48,7 +48,7 @@ function getstatus() {
             window.location.href = url_tracker + enlaces[0].href;
         }
 
-        return {
+        return { action: "open_info",
             state: "Formulario pendiente",
             StyleClass: "Warning"
         };

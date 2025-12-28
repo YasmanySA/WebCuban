@@ -278,6 +278,7 @@ function getstatus() {
 
 
             return {
+                action: "open_info",
                 state: "Certificación no disponible para descargar. Obteniendo el estado de la misma",
                 StyleClass: "Danger"
             }
@@ -301,7 +302,43 @@ function getstatus() {
     };
 }
 
+function Open_table() {
+    const btView = document.querySelector('.pagedTable a.tableOption');
+
+    if (btView) {
+        btView.click();
+        return {
+            action: "download",
+            state: "Descargando Certificación",
+            StyleClass: "Success"
+        };
+        // hace click en Vista
+    } else {
 
 
+        return {status: false};    }
+
+
+
+}
+function getLink() {
+
+    const botonAbrir = document.querySelector(
+        'form[name="tracker_ViewAnyInputDocument1"] a.tableOption'
+    );
+
+    if (botonAbrir && botonAbrir.href) {
+
+        // botonAbrir.click(); // hace click en Abrir
+        return {
+            action: "end",
+            link: botonAbrir.href,
+            state: 'Certificación descargada con exito',
+            styleClass: 'success'
+        };
+    }
+
+
+}
 
 // getstatus();
